@@ -47,10 +47,9 @@
     </build>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.alluxio/alluxio-core-client -->
         <dependency>
             <groupId>org.alluxio</groupId>
-            <artifactId>alluxio-core-client-fs</artifactId>
+            <artifactId>alluxio-shaded-client</artifactId>
             <version>2.7.2</version>
         </dependency>
     </dependencies>
