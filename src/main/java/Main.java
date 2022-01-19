@@ -12,20 +12,17 @@ public class Main {
     public static int BUFFER_SIZE = 100;
 
     public static void main(String[] args) throws IOException, AlluxioException {
-//        if (args.length != 1) {
-//            System.out.println("Usage: java -jar <jarpath> <alluxio file path>");
-//            System.exit(1);
-//            return;
-//        }
-//
+        if (args.length != 1) {
+            System.out.println("Usage: java -jar <jarpath> <alluxio file path>");
+            System.exit(1);
+            return;
+        }
         FileSystem fs = alluxio.client.file.FileSystem.Factory.get();
-//        String filePathArg = args[args.length - 1];
-        String filePathArg = "/test.txt";
+        String filePathArg = args[args.length - 1];
         AlluxioURI path = new AlluxioURI(filePathArg);
 
         System.out.printf("Reading the first %d bytes of file %s\n\n", BUFFER_SIZE, filePathArg);
 
-//        byte[] buffer = new byte[BUFFER_SIZE];
         ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE);
 
         try (FileInStream inStream = fs.openFile(path)) {
